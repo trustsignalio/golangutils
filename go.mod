@@ -1,4 +1,4 @@
-module github.com/trustsignalio/go-lang-utils
+module github.com/trustsignalio/golangutils
 
 go 1.16
 

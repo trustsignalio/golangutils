@@ -116,6 +116,16 @@ func (c *Client) HGet(key, field string) (string, bool) {
 	return result, true
 }
 
+// Get will return the hash map key
+func (c *Client) Get(key, field string) (string, bool) {
+	resp := c.conn.Get(ctx, key)
+	result, err := resp.Result()
+	if err != nil {
+		return "", false
+	}
+	return result, true
+}
+
 // Set will create a key in redis
 func (c *Client) Set(key, field string, expiration time.Duration) {
 	c.conn.Set(ctx, key, field, expiration)

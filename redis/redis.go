@@ -117,7 +117,7 @@ func (c *Client) HGet(key, field string) (string, bool) {
 }
 
 // Get will return the hash map key
-func (c *Client) Get(key, field string) (string, bool) {
+func (c *Client) Get(key string) (string, bool) {
 	resp := c.conn.Get(ctx, key)
 	result, err := resp.Result()
 	if err != nil {

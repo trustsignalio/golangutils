@@ -121,6 +121,10 @@ func (c *Client) HSet(key string, field string, value string) {
 	c.conn.HSet(ctx, key, field, value)
 }
 
+func (c *Client) HDel(key string, field string) {
+	c.conn.HDel(ctx, key, field)
+}
+
 // Get will return the hash map key
 func (c *Client) Get(key string) (string, bool) {
 	resp := c.conn.Get(ctx, key)

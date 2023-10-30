@@ -125,6 +125,19 @@ func (c *Client) HDel(key string, field string) {
 	c.conn.HDel(ctx, key, field)
 }
 
+func (c *Client) Hlen(key string) int64 {
+	resp := c.conn.HLen(ctx, key)
+	result, err := resp.Result()
+	if err != nil {
+		return 0
+	}
+	return result
+}
+
+func (c *Client) Hmset(key string, hashdata map[string]interface{}) {
+	c.conn.HMSet(ctx, key, hashdata)
+}
+
 // Get will return the hash map key
 func (c *Client) Get(key string) (string, bool) {
 	resp := c.conn.Get(ctx, key)

@@ -74,6 +74,7 @@ func NewV2Client(opts *ClientOptions) *Clientv2 {
 
 	rclient, _ := radix.NewPool("tcp", opts.Host+":"+opts.Port, poolSize, radix.PoolConnFunc(customConnFunc))
 	var client = &Clientv2{pool: rclient}
+
 	return client
 }
 

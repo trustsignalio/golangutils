@@ -168,6 +168,11 @@ func (c *Client) DelMulti(keys []string) {
 	c.conn.Del(ctx, keys...)
 }
 
+// DelMulti method will remove multiple keys from redis hash
+func (c *Client) HDelMulti(key string, field []string) {
+	c.conn.HDel(ctx, key, field...)
+}
+
 // HIncrBy will increment a hash map key
 func (c *Clientv2) HIncrBy(key, field string, inc int64) {
 	if c.pool != nil {

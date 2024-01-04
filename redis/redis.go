@@ -163,6 +163,11 @@ func (c *Client) Del(key string) {
 	c.conn.Del(ctx, key)
 }
 
+// Expire method will expire single key from redis
+func (c *Client) Expire(key string, expiration time.Duration) {
+	c.conn.Expire(ctx, key, expiration)
+}
+
 // DelMulti method will remove multiple keys from redis
 func (c *Client) DelMulti(keys []string) {
 	c.conn.Del(ctx, keys...)
